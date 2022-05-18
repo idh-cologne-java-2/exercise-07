@@ -29,10 +29,11 @@ public class MyLinkedList<T> implements List<T> {
 	@Override
 	public boolean contains(Object o) {
 		// TODO Implement!
-		for (T x : this)
-			if (o.equals(x))
-				return true;
-		return false;
+//		for (T x : this)
+//			if (o.equals(x))
+//				return true;
+//		return false;
+		return prefirst.contains((T) o);
 	}
 
 	@Override
@@ -319,6 +320,16 @@ public class MyLinkedList<T> implements List<T> {
 			else 
 				return 1 + next.size();
 		}
+		
+		public boolean contains(T value) {
+			if(value.equals(this.value)) //warum nicht mit this im ersten?
+				return true;
+			else {
+				if(next == null) return false;
+				else
+				return next.contains(value);
+			}
+		}
 	}
 	
 	/**
@@ -392,6 +403,14 @@ public class MyLinkedList<T> implements List<T> {
 		
 		list.clear();
 		testReturn("size() after clear()", 0, list.size());
+		
+		
+		//für contains
+		list.add("one");
+		list.add("Hallo");
+		System.out.println("size " + list.size());
+		System.out.println("Hallo? " + list.contains("Hallo"));
+		System.out.println("irgendwas? " + list.contains("irgendwas"));
 
 	}
 }
