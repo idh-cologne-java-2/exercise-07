@@ -1,24 +1,34 @@
 package idh.java;
 
 
+import java.util.HashMap;
 import java.util.Iterator;
 
-class AccountIterator implements Iterator<Account> {
+public class AccountIterator implements Iterator<Account> {
 	int currentPosition = 0;
-	Account[] accounts;
+	HashMap<String, Account> accountMap;
 	
-	public AccountIterator(Account[] accounts) {
-		this.accounts = accounts;
+	public AccountIterator(HashMap<String, Account> accounts) {
+		this.accountMap = accounts;
 	}
 	
+
 	@Override
 	public boolean hasNext() {
-		return currentPosition < accounts.length;
+		return currentPosition < accountMap.size();
 	}
 
 	@Override
 	public Account next() {
-		return accounts[currentPosition++];
+		int i = 0;
+		for (Account acc : this.accountMap.values()) {
+			if (i == currentPosition) {
+				currentPosition++;
+				return acc;
+			}
+			i++;
+		}
+		return null;
 	}
 	
 }
