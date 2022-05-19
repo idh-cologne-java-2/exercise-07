@@ -32,16 +32,24 @@ public class MyLinkedList<T> implements List<T> {
 	//	for (T x : this)
 	//		if (o.equals(x))
 	//			return true;
-		if(prefirst.next == null)  
-			return false; 
 		
-		if(prefirst.value.equals(o)) 
-			return true;
+		prefirst= prefirst.next;
+		if ( prefirst.value.equals((T) o)) {
+			return true ;
+		}else {
+			
+			if(prefirst.next == null) {
+				return false;
+			}
+			
+			
+			
+			return  contains(o); 
+		}
 		
-		prefirst = prefirst.next;
 		
-		return contains(0);
-	}
+		
+			}
 
 	@Override
 	public Iterator<T> iterator() {
@@ -188,7 +196,7 @@ public class MyLinkedList<T> implements List<T> {
 		ListElement atPosition = getElement(index-1);
 		ListElement newElement = new ListElement(element);
 		newElement.next = atPosition.next;
-		atPosition.next = newElement;
+		atPosition.next = newElement.next;
 	}
 
 	@Override
@@ -327,6 +335,8 @@ public class MyLinkedList<T> implements List<T> {
 			else 
 				return 1 + next.size();
 		}
+		
+		
 	}
 	
 	/**
@@ -380,26 +390,15 @@ public class MyLinkedList<T> implements List<T> {
 
 	public static void main(String[] args) {
 		MyLinkedList<String> list = new MyLinkedList<String>();
+		list.add("Achtung");
+		list.add("Hallo");
 		
-		testReturn("size() with an empty list", 0, list.size());
-		testReturn("add()", true, list.add("Hallo"));
-		testReturn("size() after add()", 1, list.size());
-		testReturn("get(0)", "Hallo", list.get(0));
-		testReturn("toString()", "[Hallo]", list.toString());
-		testReturn("add()", true, list.add("Welt"));
-		testReturn("toString()", "[Hallo,Welt]", list.toString());
-		testReturn("get(1)", "Welt", list.get(0));
-		list.add(0, "Achtung");
-		testReturn("toString()", "[Achtung,Hallo,Welt]", list.toString());
-		testReturn("set()", "Hallo", list.set(1, "Hello"));
-		testReturn("toString()", "[Achtung,Hello,Welt]", list.toString());
-		testReturn("remove()", "Hello", list.remove(1));
-		testReturn("toString()", "[Achtung,Welt]", list.toString());
-		testReturn("addAll()", true, list.addAll(1, Arrays.asList("I", "am", "an", "example")));
-		testReturn("toString()", "[Achtung,I,am,an,example,Welt]", list.toString());
 		
-		list.clear();
-		testReturn("size() after clear()", 0, list.size());
+		
+		
+		
+		
+		System.out.println(list.contains("sieg"));
 
 	}
 }
