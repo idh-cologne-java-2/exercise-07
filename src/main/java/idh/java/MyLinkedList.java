@@ -3,11 +3,6 @@ package idh.java;
 import java.util.*;
 
 public class MyLinkedList<T> implements List<T> {
-
-    /**
-     * We only need to store the very first element of our list,
-     * because it will now whether there is a next element.
-     */
     ListElement first;
     int size = 0;
 
@@ -27,12 +22,7 @@ public class MyLinkedList<T> implements List<T> {
     //fragt, ob ein bestimmtes Object in der Liste enthalten ist
     @Override
     public boolean contains(Object o) {
-        for (T t : this) {
-            if (t == o) {
-                return true;
-            }
-        }
-        return false;
+        return first.contains(o);
     }
 
     @Override
@@ -414,9 +404,20 @@ public class MyLinkedList<T> implements List<T> {
         //Zeiger auf nächstes Element in Liste
         ListElement next;
 
-        //Konstruktor
-        ListElement(T value) {
+        //Prüft ob gesuchtes Element dem aktuellen entspricht
+        //Rekursiver Aufruf "next.contains(o)"
+        public boolean contains (Object o){
+            if(o.equals(value)){
+                return true;
+            }
+            if (next == null){
+                return false;
+            }
+            return next.contains(o);
+        }
 
+        //Konstruktor ListElement
+        ListElement(T value) {
             this.value = value;
         }
     }
@@ -437,12 +438,6 @@ public class MyLinkedList<T> implements List<T> {
         return current;
     }
 
-    /**
-     * Internal method to get the list element (not the value) of the list at the specified index position.
-     *
-     * @param index
-     * @return
-     */
     private ListElement getElement(int index) {
         if (isEmpty())
             return null;

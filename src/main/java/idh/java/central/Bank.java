@@ -10,6 +10,7 @@ public class Bank implements Iterable<Account>{
     public Account erstelleKonto(int kontoStand, String kontoNummer){
         Account account = new Account(kontoStand, kontoNummer);
 
+        //Hash Map befüllen
         konten.put(kontoNummer,account);
 
         return account;
@@ -40,9 +41,6 @@ public class Bank implements Iterable<Account>{
             }
         }
         throw new Exception("Konto gibt es nicht!");
-
-        //extrahiere Konto aus HashMap
-        // return konten.get(kontoNummer);
     }
 
     //Funktion, ob Konto mit angegebener KontoNr. existiert
@@ -50,6 +48,7 @@ public class Bank implements Iterable<Account>{
 
         //return konten.containsKey(kontoNummer);
         Iterator<Account> it = iterator();
+
         while(it.hasNext())
         {
             Account ac = it.next();
