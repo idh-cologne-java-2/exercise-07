@@ -5,27 +5,28 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
+
+
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
 	
-	HashMap<Integer,Account>s = new HashMap<Integer,Account>();
+	HashMap<String,Account>s = new HashMap<String,Account>();
 
 	public Bank() {
 		// create accounts with varying balances
-		Random random = new Random();
-		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
-			s.put(i, accounts[i]);
-		}
-
-		init(); 
+//		Random random = new Random();
+		//for (int i = 0; i < accounts.length; i++) {
+			//accounts[i] = new Account(i, random.nextInt(1000));
+			//s.put(i, accounts[i]);
+		//} 
 	}
 	
 	
 	
-	
-	
-	private void init( ) {
+	public void createAccount(String key) {
+		Random r = new Random();
+		Account a =  new Account(key,r.nextInt(1000));
+		s.put(key, a);
 		
 	}
 	
@@ -34,12 +35,12 @@ public class Bank implements Iterable<Account> {
 		return new AccountIterator(accounts);
 	}
 	
-	public Account getAccount(int number) {
+	public Account getAccount(String key) {
 		
 		
 		
 		// TODO: Implement
-		return s.get(number);
+		return s.get(key);
 	}
 
 }

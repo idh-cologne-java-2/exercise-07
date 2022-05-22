@@ -25,11 +25,22 @@ public class ATM  {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			try {
-				System.out.print("Enter your account number: ");
-				int accountNumber = Integer.parseInt(br.readLine());
+				String AccountIentify = "";
+				for(int i = 0 ; i<4 ; i++) {
+					System.out.print("Please enter a given Account name u want to have: ");
+					AccountIentify= br.readLine();
+					bank.createAccount(AccountIentify);
+					
+				}
+				System.out.println("Please enter the id of your account of choice: ");
+				
+				String accountid = br.readLine().trim(); 
+				
+				
+				
 				System.out.print("Enter the amount to withdraw: ");
 				int amount = Integer.parseInt(br.readLine());
-				cashout(accountNumber, amount);
+				cashout(accountid, amount);
 			} catch (Exception e) {
 				e.printStackTrace();
 				break;
@@ -37,7 +48,7 @@ public class ATM  {
 		}
 	}
 
-	public void cashout(int accountNumber, int amount) {
+	public void cashout(String accountNumber, int amount) {
 		// check for cash in the ATM
 		if (amount > cash) {
 			System.out.println("Sorry, not enough cash left.");
