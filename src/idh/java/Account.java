@@ -33,7 +33,10 @@ public class Account {
 	public void setBalance(int status) {
 		this.balance = status;
 	}
-	
+	@Override
+	public String toString() {
+	return "account with the ID " + id + "."	;
+	}
 	/**
 	 * Withdraws a sum of money from the account
 	 * @param sum
