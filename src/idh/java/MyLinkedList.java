@@ -29,10 +29,11 @@ public class MyLinkedList<T> implements List<T> {
 	@Override
 	public boolean contains(Object o) {
 		// TODO Implement!
-		for (T x : this)
-			if (o.equals(x))
-				return true;
-		return false;
+//		for (T x : this)
+//			if (o.equals(x))
+//				return true;
+//		return false;
+		return prefirst.contains(0);
 	}
 
 	@Override
@@ -114,7 +115,7 @@ public class MyLinkedList<T> implements List<T> {
 		// TODO Implement!
 
 		// Create a new linked list for the collection
-		ListElement first=null, previous=null,current=null;
+		ListElement first = null, previous = null, current = null;
 		for (T x : c) {
 			current = new ListElement(x);
 			if (first == null) {
@@ -177,7 +178,7 @@ public class MyLinkedList<T> implements List<T> {
 	public void add(int index, T element) {
 		// TODO Implement!
 
-		ListElement atPosition = getElement(index-1);
+		ListElement atPosition = getElement(index - 1);
 		ListElement newElement = new ListElement(element);
 		newElement.next = atPosition.next;
 		atPosition.next = newElement;
@@ -314,10 +315,22 @@ public class MyLinkedList<T> implements List<T> {
 		}
 		
 		public int size() {
-			if (next == null) 
+			if (next == null) {
 				return 1;
-			else 
+			} else {
 				return 1 + next.size();
+			}
+		}
+		
+		public boolean contains(Object o) {
+			if (this.value.equals(o)) {
+				return true;
+			} else {
+				if (next == null) {
+					return false; 
+				}
+				return next.contains(o);
+			}
 		}
 	}
 	
