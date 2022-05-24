@@ -71,6 +71,7 @@ public class ATM  {
 		Bank bank = new Bank();
 		ATM atm = new ATM(bank);
 		atm.run();
+		
 	};
 	
 	/**
