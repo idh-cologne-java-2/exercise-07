@@ -2,21 +2,14 @@ package idh.java.central;
 
 public class Account {
 
-    //kontoStand des Inhabers als float
     private int kontoStand;
-
     public String kontoNummer;
-
-    //HashMap mit Key (Kontonummer) und Value (Konto bzw. Kontostand)
 
 
     //Konstruktor
     Account(int kontoStand, String kontoNummer) {
         this.kontoStand = kontoStand;
         this.kontoNummer = kontoNummer;
-
-        //Befüllen der HashMap mit kontoNummer und Konto (this)
-        //konten.put(kontoNummer, this);
     }
 
     //GETTER getKontostand
