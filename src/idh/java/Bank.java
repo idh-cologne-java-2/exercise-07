@@ -8,7 +8,7 @@ import java.util.Random;
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
 	
-	java.util.HashMap<Integer, Account> Hashbank = new HashMap<Integer,Account>();
+	HashMap<Integer, Account> Hashbank = new HashMap<Integer,Account>();
 
 	public Bank() {
 		// create accounts with varying balances
