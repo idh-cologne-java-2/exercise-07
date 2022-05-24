@@ -319,6 +319,16 @@ public class MyLinkedList<T> implements List<T> {
 			else 
 				return 1 + next.size();
 		}
+		
+		public boolean contains(Object o) {
+			if (next == null) {
+				return false;
+			} else if (next.value.equals(o)) {
+				return true;
+			} else {
+				return next.contains(o);
+			}
+		}
 	}
 	
 	/**
@@ -392,6 +402,11 @@ public class MyLinkedList<T> implements List<T> {
 		
 		list.clear();
 		testReturn("size() after clear()", 0, list.size());
+		
+		
+		list.add("Hallo");
+		System.out.println(list);
+		System.out.println(list.contains("Hallo"));
 
 	}
 }
