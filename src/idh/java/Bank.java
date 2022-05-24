@@ -1,10 +1,12 @@
 package idh.java;
 
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
 public class Bank implements Iterable<Account> {
+	HashMap<Integer, Account> bank = new HashMap<Integer, Account>();
 	Account[] accounts = new Account[5];
 
 	public Bank() {
@@ -12,6 +14,7 @@ public class Bank implements Iterable<Account> {
 		Random random = new Random();
 		for (int i = 0; i < accounts.length; i++) {
 			accounts[i] = new Account(i, random.nextInt(1000));
+			bank.put(i, accounts[i]);
 		}
 	}
 	
@@ -21,8 +24,8 @@ public class Bank implements Iterable<Account> {
 	}
 	
 	public Account getAccount(int number) {
-		// TODO: Implement
-		return null;
+		// Nur ein Kommentar zum Testen...
+		return bank.get(number);
 	}
 
 }
