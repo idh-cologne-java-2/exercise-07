@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
 
-	HashMap<Integer, Account> bankaccounts = new HashMap<>();
+	HashMap<Integer, Account> bankmap = new HashMap<>();
 
 	public Bank() {
 		// create accounts with varying balances
@@ -21,7 +21,7 @@ public class Bank implements Iterable<Account> {
 			accounts[i] = new Account(i, random.nextInt(1000));
 
 			// Insert accounts into a map
-			bankaccounts.put(i, accounts[i]);
+			bankmap.put(i, accounts[i]);
 		}
 	}
 
@@ -32,7 +32,7 @@ public class Bank implements Iterable<Account> {
 
 	public Account getAccount(int number) {
 		// Get account number
-		return bankaccounts.get(number);
+		return bankmap.get(number);
 	}
 
 }
