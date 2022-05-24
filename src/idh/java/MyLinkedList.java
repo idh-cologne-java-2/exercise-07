@@ -34,6 +34,7 @@ public class MyLinkedList<T> implements List<T> {
 				return true;
 		return false;
 	}
+	//Correct me if I´m wrong, but isn´t it already implemented?
 
 	@Override
 	public Iterator<T> iterator() {
@@ -57,6 +58,7 @@ public class MyLinkedList<T> implements List<T> {
 	@Override
 	public Object[] toArray() {
 		// TODO Implement!
+		//What am I supposed to implement here? there´s no object to use the Contains method on
 		return toArray(new Object[size()]);
 	}
 
@@ -82,6 +84,7 @@ public class MyLinkedList<T> implements List<T> {
 	@Override
 	public boolean remove(Object o) {
 		// TODO Implement!
+		
 		ListIterator<T> li = this.listIterator();
 		boolean r = false;
 		while(li.hasNext()) {
