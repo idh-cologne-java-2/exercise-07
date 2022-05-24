@@ -3,9 +3,11 @@ package idh.java;
 
 import java.util.Iterator;
 import java.util.Random;
+import java.util.HashMap;
 
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
+	HashMap<Integer, Account> idk = new HashMap<Integer, Account>();
 
 	public Bank() {
 		// create accounts with varying balances

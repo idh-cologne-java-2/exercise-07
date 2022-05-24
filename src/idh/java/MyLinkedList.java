@@ -28,11 +28,12 @@ public class MyLinkedList<T> implements List<T> {
 
 	@Override
 	public boolean contains(Object o) {
-		// TODO Implement!
-		for (T x : this)
+		// TODO Implement! 
+		return prefirst.contains();
+		/*for (T x : this)
 			if (o.equals(x))
 				return true;
-		return false;
+		return false;*/
 	}
 
 	@Override
@@ -318,6 +319,12 @@ public class MyLinkedList<T> implements List<T> {
 				return 1;
 			else 
 				return 1 + next.size();
+		}
+		
+		public boolean contains() {
+			if (next == null) 
+				return true;
+			return next.contains();
 		}
 	}
 	
