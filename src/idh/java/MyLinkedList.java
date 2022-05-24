@@ -1,3 +1,4 @@
+// Tim Schäfer 7380391
 package idh.java;
 
 import java.util.Arrays;
@@ -28,11 +29,8 @@ public class MyLinkedList<T> implements List<T> {
 
 	@Override
 	public boolean contains(Object o) {
-		// TODO Implement!
-		for (T x : this)
-			if (o.equals(x))
-				return true;
-		return false;
+		//rekursive Methode wird aufgerufen
+		return prefirst.contains(o);
 	}
 
 	@Override
@@ -319,6 +317,29 @@ public class MyLinkedList<T> implements List<T> {
 			else 
 				return 1 + next.size();
 		}
+		
+		
+		public boolean contains(Object o) {
+			
+			
+			// bin ich am ende der liste? (passiert nur wenn es bis jetzt nicht gefunden wurde)
+			if( next == null) {
+				// liste einmal durch ohne das es vorkommt also... false
+				return false;
+			}
+			
+			// wenns passt dann true
+			if(next.value.equals(o)) {
+				return true;
+				
+			}else{
+				//bin noch nicht am ende und gefunden ist es auch nicht,
+				//deshalb gebe ich die Aufgabe/Methode weiter
+				//und die Methode ruft sich selbst beim nächsten Object auf
+				return next.contains(o);
+			}
+			
+		}
 	}
 	
 	/**
@@ -388,8 +409,12 @@ public class MyLinkedList<T> implements List<T> {
 		testReturn("remove()", "Hello", list.remove(1));
 		testReturn("toString()", "[Achtung,Welt]", list.toString());
 		testReturn("addAll()", true, list.addAll(1, Arrays.asList("I", "am", "an", "example")));
-		testReturn("toString()", "[Achtung,I,am,an,example,Welt]", list.toString());
 		
+		//der Test ob alles klappt
+		System.out.println("Contains the word 'an' = " + list.contains("an"));
+		System.out.println("Contains the word 'Dornfelder' = " + list.contains("Dornfelder"));
+		
+		testReturn("toString()", "[Achtung,I,am,an,example,Welt]", list.toString());
 		list.clear();
 		testReturn("size() after clear()", 0, list.size());
 
