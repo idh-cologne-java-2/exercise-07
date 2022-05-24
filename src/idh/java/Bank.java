@@ -1,7 +1,9 @@
 package idh.java;
 
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 
 public class Bank implements Iterable<Account> {
@@ -20,9 +22,8 @@ public class Bank implements Iterable<Account> {
 		return new AccountIterator(accounts);
 	}
 	
+	Map <Integer, Account> map = new HashMap<Integer, Account>(); 
 	public Account getAccount(int number) {
-		// TODO: Implement
-		return null;
+		return map.get(number);
 	}
-
 }
