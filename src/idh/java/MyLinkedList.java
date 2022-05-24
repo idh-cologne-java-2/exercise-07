@@ -109,7 +109,7 @@ public class MyLinkedList<T> implements List<T> {
 	public boolean addAll(int index, Collection<? extends T> c) {
 		// TODO Implement!
 
-		// Create a new linked list for the collection
+		// Create a new linked list for the collectionn
 		ListElement first=null, previous=null,current=null;
 		for (T x : c) {
 			current = new ListElement(x);

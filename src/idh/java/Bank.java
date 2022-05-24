@@ -24,7 +24,6 @@ public class Bank implements Iterable<Account> {
 	}
 	
 	public Account getAccount(int number) {
-		// Nur ein Kommentar zum Testen...
 		return bank.get(number);
 	}
 
