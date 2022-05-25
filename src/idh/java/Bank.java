@@ -25,11 +25,12 @@ public class Bank implements Iterable<Account> {
 		HashMap<Integer, Account> accountsmap = new HashMap<Integer, Account>();
 		for(int i = 0; i < accounts.length; i++) {
 			accountsmap.put(accounts[i].getId(), accounts[i]);
-			if(accountsmap.containsKey(number)) {
-				return accountsmap.get(number);
-			}
 		}
+		if(accountsmap.containsKey(number)) {
+			return accountsmap.get(number);
+		} else {
 		return null;
+		}
 	}
 
 }
