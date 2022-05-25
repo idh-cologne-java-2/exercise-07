@@ -12,6 +12,7 @@ public class MyLinkedList<T> implements List<T> {
 	/**
 	 * We only need to store a dummy -1th element of our list.
 	 * It nows whether there is a next element.
+	 * 
 	 */
 	ListElement prefirst = new ListElement(null);
 	
